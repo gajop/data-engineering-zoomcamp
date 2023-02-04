@@ -68,5 +68,6 @@ def monthly_flow():
 
 if __name__ == "__main__":
     # etl_web_to_gcs()
-    etl_web_to_gcs(color="yellow", year=2019, month=2)
-    etl_web_to_gcs(color="yellow", year=2019, month=3)
+    # etl_web_to_gcs(color="yellow", year=2019, month=2)
+    # etl_web_to_gcs(color="yellow", year=2019, month=3)
+    etl_web_to_gcs(color="green", year=2019, month=4)
