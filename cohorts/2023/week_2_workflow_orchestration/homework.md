@@ -87,20 +87,20 @@ Alternatively, you can grab the webhook URL from your own Slack workspace and Sl
 
 How many rows were processed by the script?
 
-- `125,268`
-- `377,922`
-- `728,390`
 - `514,392`
 
+
+> Slack notification was never sent (orion gave an error) - webhook was incorrectly setup
+> Setup Prefect cloud but I didn't bother with all the (GCS) blocks. I setup notifications which I did get, and it showed the number of rows regardless.
+> rows: 514392
 
 ## Question 6. Secrets
 
 Prefect Secret blocks provide secure, encrypted storage in the database and obfuscation in the UI. Create a secret block in the UI that stores a fake 10-digit password to connect to a third-party service. Once you’ve created your block in the UI, how many characters are shown as asterisks (*) on the next page of the UI?
 
-- 5
-- 6
 - 8
-- 10
+
+> boring
 
 
 ## Submitting the solutions
