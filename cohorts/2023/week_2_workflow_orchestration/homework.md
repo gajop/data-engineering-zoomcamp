@@ -54,10 +54,13 @@ Run your deployment in a local subprocess (the default if you don’t specify an
 
 How many rows were processed by the script?
 
-- 88,019
-- 192,297
 - 88,605
-- 190,225
+
+```
+prefect deployment build ./etl_web_to_gcs.py:etl_web_to_gcs  --name etl-_web_to_gcs_gh --tag github-flow -sb github/zoomcamp-gh -a
+```
+
+> rows: 88605
 
 
 
