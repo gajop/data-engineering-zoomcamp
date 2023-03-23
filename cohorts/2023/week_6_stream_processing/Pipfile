@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+# Doesn't work well with pipenv, use pip instead
+# pip install kafka-python==1.4.6 confluent_kafka requests avro faust fastavro
+
+[packages]
+kafka-python = "==1.4.6"
+confluent-kafka = "*"
+requests = "*"
+avro = "*"
+faust = "*"
+fastavro = "*"
+pandas = "*"
+black = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.8"

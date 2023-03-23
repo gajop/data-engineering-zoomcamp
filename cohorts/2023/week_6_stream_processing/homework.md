@@ -1,10 +1,10 @@
-## Week 6 Homework 
+## Week 6 Homework
 
-In this homework, there will be two sections, the first session focus on theoretical questions related to Kafka 
-and streaming concepts and the second session asks to create a small streaming application using preferred 
+In this homework, there will be two sections, the first session focus on theoretical questions related to Kafka
+and streaming concepts and the second session asks to create a small streaming application using preferred
 programming language (Python or Java).
 
-### Question 1: 
+### Question 1:
 
 **Please select the statements that are correct**
 
@@ -14,7 +14,16 @@ programming language (Python or Java).
 - Group-Id ensures the messages are distributed to associated consumers
 
 
-### Question 2: 
+- Kafka Node is responsible to store topics
+-> Maybe?
+- Zookeeper is removed form Kafka cluster starting from version 4.0
+-> Maybe? it was removed at one point...
+- Retention configuration ensures the messages not get lost over specific period of time.
+-> Sure... It just sets auto-deletion, not sure if that's appropriate as "preventing loss" - it's not backup
+- Group-Id ensures the messages are distributed to associated consumers
+-> Sure
+
+### Question 2:
 
 **Please select the Kafka concepts that support reliability and availability**
 
@@ -24,21 +33,29 @@ programming language (Python or Java).
 - Ack All
 
 
+- Topic Replication
+-> If a topic producer dies, topic replication can help us as an alternative producer kicks in.
+- Ack All
+-> If one of the nodes didn't catch the event, Ack All will force us to handle this (and likely re-transmit).
 
-### Question 3: 
+### Question 3:
 
-**Please select the Kafka concepts that support scaling**  
+**Please select the Kafka concepts that support scaling**
 
 - Topic Replication
 - Topic Paritioning
 - Consumer Group Id
 - Ack All
 
+- Topic Paritioning
+-> We can have only as many consumers running in parallel as we have partitions
+- Consumer Group Id
+-> Group Id is used to create backup consumers for the same partition (Is this closer to reliability?)
 
-### Question 4: 
+### Question 4:
 
-**Please select the attributes that are good candidates for partitioning key. 
-Consider cardinality of the field you have selected and scaling aspects of your application**  
+**Please select the attributes that are good candidates for partitioning key.
+Consider cardinality of the field you have selected and scaling aspects of your application**
 
 - payment_type
 - vendor_id
@@ -47,10 +64,20 @@ Consider cardinality of the field you have selected and scaling aspects of your 
 - tpep_pickup_datetime
 - tpep_dropoff_datetime
 
+Only these two make sense:
+- vendor_id
+- payment_type
 
-### Question 5: 
+### Question 5:
 
 **Which configurations below should be provided for Kafka Consumer but not needed for Kafka Producer**
+
+- Deserializer Configuration
+- Topics Subscription
+- Bootstrap Server
+- Group-Id
+- Offset
+- Cluster Key and Cluster-Secret
 
 - Deserializer Configuration
 - Topics Subscription
@@ -63,10 +90,10 @@ Consider cardinality of the field you have selected and scaling aspects of your 
 ### Question 6:
 
 Please implement a streaming application, for finding out popularity of PUlocationID across green and fhv trip datasets.
-Please use the datasets [fhv_tripdata_2019-01.csv.gz](https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv) 
+Please use the datasets [fhv_tripdata_2019-01.csv.gz](https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/fhv)
 and [green_tripdata_2019-01.csv.gz](https://github.com/DataTalksClub/nyc-tlc-data/releases/tag/green)
 
-PS: If you encounter memory related issue, you can use the smaller portion of these two datasets as well, 
+PS: If you encounter memory related issue, you can use the smaller portion of these two datasets as well,
 it is not necessary to find exact number in the  question.
 
 Your code should include following
@@ -74,11 +101,11 @@ Your code should include following
 2. Pyspark-streaming-application that reads two kafka topics
    and writes both of them in topic rides_all and apply aggregations to find most popular pickup location.
 
-   
+
 ## Submitting the solutions
 
 * Form for submitting: https://forms.gle/rK7268U92mHJBpmW7
-* You can submit your homework multiple times. In this case, only the last submission will be used. 
+* You can submit your homework multiple times. In this case, only the last submission will be used.
 
 Deadline: 13 March (Monday), 22:00 CET
 
